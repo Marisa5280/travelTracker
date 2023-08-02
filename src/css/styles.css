@@ -1,3 +1,62 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: #517156;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  height: 40px;
+  background: #D9D9D9;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.content {
+  background: #D9D9D9;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trips_container {
+  background: #A4CBAA;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.trips_columns_wrapper {
+  display: flex;
+  padding-bottom: 40px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.trips_past_container, .trips_pending_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trips_past_box, .trips_pending_box {
+  width: 500px;
+  height: 500px;
+  background-color: #D9D9D9;
+}
+
+.total_cost_container {
+  background-color: #A4CBAA;
+  margin: 20px;
+  border-radius: 5px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
