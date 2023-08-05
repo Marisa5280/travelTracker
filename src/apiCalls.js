@@ -28,7 +28,7 @@ const addNewTrip = (data) => {
   .then(response => response.json())
   .then(data => console.log(data));
 };
-// addNewTrip(requestObj);
+
 export {
   oneTravelerData,
   addNewTrip
