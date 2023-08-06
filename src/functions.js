@@ -7,17 +7,20 @@ const filterUserTrips = (id, tripsData, destinationsData) => {
       ).destination;
       return trip;
     });
-    return userDestinations.reduce((acc, userTrip) => {
-      if (userTrip.status === "approved") {
-        acc.past.push(userTrip);
-      } else if (userTrip.status === "pending") {
-        acc.pending.push(userTrip);
+    return userDestinations.reduce(
+      (acc, userTrip) => {
+        if (userTrip.status === "approved") {
+          acc.past.push(userTrip);
+        } else if (userTrip.status === "pending") {
+          acc.pending.push(userTrip);
+        }
+        return acc;
+      },
+      {
+        pending: [],
+        past: [],
       }
-      return acc;
-    }, {
-      pending: [],
-      past: [],
-    });
+    );
   } else {
     return `User ${id} cannot be found`;
   }
