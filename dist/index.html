@@ -16,7 +16,7 @@
       log out
     </button>
   </header>
-  <div class="content">
+  <div class="content_dashboard">
     <h2>welcome text goes here</h2>
     <div class="trips_container">
       <h3>My Trips:</h3>
@@ -33,6 +33,13 @@
     </div>
     <div class="total_cost_container">
       <p>total spent this year: $<span class="total_cost">0</span></p>
+    </div>
+  </div>
+  <div class="content_booking">
+    <h2>Request a New Trip</h2>
+    <div class="booking_date-filter">
+      <label for="booking">Please Choose a Start Date</label>
+      <input class="booking_date" tabindex='0' type="date" placeholder="yyyy/mm/dd" id="date">
     </div>
   </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
