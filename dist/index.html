@@ -31,7 +31,7 @@
         <p>total spent this year: $<span class="total_cost">0</span></p>
       </div>
     </div>
-    <div class="content_booking">
+    <div class="content_booking" hidden>
       <h2>Request a New Trip</h2>
       <div class="booking_date-filter">
         <label for="booking">Please Choose a Start Date</label>
@@ -41,11 +41,12 @@
           type="date"
           placeholder="yyyy/mm/dd"
           id="date"
+          required
         />
       </div>
       <div class="booking_destination-select">
         <label for="destinations">Select a destination</label>
-        <select id="destination" name="destinations" tabindex="0">
+        <select id="destination" name="destinations" tabindex="0" required>
           <!-- <option value="single-room" tabindex='0'>Single Room</option>
       <option value="junior-suite" tabindex='0'>Junior Suite</option>
       <option value="residential-suite" tabindex='0'>Residential Suite</option>
@@ -61,6 +62,7 @@
           placeholder="0"
           min="1"
           max="10"
+          required
         />
       </div>
       <div class="booking_trip_length">
@@ -71,6 +73,7 @@
           name="trip_length"
           placeholder="0"
           min="1"
+          required
         />
       </div>
       <button class="booking_request-button" type="submit">
