@@ -7,6 +7,14 @@ const pastBox = document.querySelector(".trips_past_box");
 const pendingBox = document.querySelector(".trips_pending_box");
 
 // FUNCTIONS
+const show = (element) => {
+  element.removeAttribute('hidden')
+}
+
+const hide = (element) => {
+  element.setAttribute('hidden')
+}
+
 const displayPastUserTrips = (id, tripsData, destinationsData) => {
   const sortedUserTrips = filterUserTrips(id, tripsData, destinationsData);
   sortedUserTrips.past.forEach((trip) => {
