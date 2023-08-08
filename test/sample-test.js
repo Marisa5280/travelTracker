@@ -2,8 +2,8 @@ import chai from "chai";
 const expect = chai.expect;
 
 import { filterUserTrips, calculateTripsCost } from "../src/functions";
-import sampleTrips from "../src/sample-data/trips";
-console.log("sampletrips", [sampleTrips.trips[0], sampleTrips.trips[1]]);
+// import sampleTrips from "../src/sample-data/trips";
+// console.log("sampletrips", [sampleTrips.trips[0], sampleTrips.trips[1]]);
 
 describe("filterUserTrips", () => {
   let tripsData;

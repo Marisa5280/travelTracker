@@ -26,13 +26,6 @@ const filterUserTrips = (id, tripsData, destinationsData) => {
   }
 };
 
-// // trips object // //
-// "destinationID": 23,
-// "travelers": 6,
-// "date": "2022/06/29",
-// "duration": 7,
-
-// Total amount I have spent on trips this year. This should be calculated from the trips data and include a travel agent’s 10% fee
 const calculateTripsCost = (id, tripsData, destinationsData) => {
   const userTrips = filterUserTrips(id, tripsData, destinationsData);
   const flightCost = userTrips.past.reduce((acc, trip) => {
@@ -53,4 +46,8 @@ const calculateTripsCost = (id, tripsData, destinationsData) => {
   return flightCost + lodgingCost + agentFee;
 };
 
-export { filterUserTrips, calculateTripsCost };
+const getDestinationSelections = (destinationsData) => {
+  return destinationsData.map(destination => destination.destination);
+}
+
+export { filterUserTrips, calculateTripsCost, getDestinationSelections };
