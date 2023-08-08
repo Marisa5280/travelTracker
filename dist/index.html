@@ -8,12 +8,13 @@
   </head>
   <body>
     <header>
-      <button>new booking</button>
+      <button class="booking_button">new booking</button>
+      <button class="back_button hide">back to dashboard</button>
       <h1>Travel Tracker</h1>
       <button>log out</button>
     </header>
     <div class="content_dashboard">
-      <h2>welcome text goes here</h2>
+      <h2 class="user_welcome_text">welcome text goes here</h2>
       <div class="trips_container">
         <h3>My Trips:</h3>
         <div class="trips_columns_wrapper">
@@ -31,7 +32,7 @@
         <p>total spent this year: $<span class="total_cost">0</span></p>
       </div>
     </div>
-    <div class="content_booking" hidden>
+    <div class="content_booking hide">
       <h2>Request a New Trip</h2>
       <div class="booking_date-filter">
         <label for="booking">Please Choose a Start Date</label>
@@ -46,11 +47,8 @@
       </div>
       <div class="booking_destination-select">
         <label for="destinations">Select a destination</label>
-        <select id="destination" name="destinations" tabindex="0" required>
-          <!-- <option value="single-room" tabindex='0'>Single Room</option>
-      <option value="junior-suite" tabindex='0'>Junior Suite</option>
-      <option value="residential-suite" tabindex='0'>Residential Suite</option>
-      <option value="suite" tabindex='0'>Suite</option> -->
+        <select class="destination-select" id="destination" name="destinations" tabindex="0" required>
+          <!-- destinations options will populate here -->
         </select>
       </div>
       <div class="booking_num_travelers">

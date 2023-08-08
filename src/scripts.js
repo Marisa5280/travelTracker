@@ -8,15 +8,22 @@ import './css/styles.css';
 // import './images/turing-logo.png'
 
 import { promises } from './apiCalls';
-import {displayPastUserTrips, displayPendingUserTrips} from './domUpdates'
+import {displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking} from './domUpdates';
 
-// console.log('This is the JavaScript entry file - your code begins here.');
+// QUERY SELECTORS //
+const newBookingButton = document.querySelector('.booking_button');
+
+// DATA MODEL //
 const mainData = {};
 
 const startWebPage = () => {
   displayPastUserTrips(2, mainData.trips, mainData.destinations);
-  displayPendingUserTrips(2, mainData.trips, mainData.destinations)
-  console.log('maindata',mainData)
+  displayPendingUserTrips(2, mainData.trips, mainData.destinations);
+  newBookingButton.addEventListener('click', () => {
+    showBookingPage(mainData);
+    handleNewBooking(mainData);
+  });
+  
 }
 
 window.addEventListener('load', () => {
@@ -30,3 +37,5 @@ window.addEventListener('load', () => {
   .then(startWebPage)
 });
 
+
+export {mainData};
