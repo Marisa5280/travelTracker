@@ -39,7 +39,7 @@ const displayPendingUserTrips = (id, tripsData, destinationsData) => {
 };
 
 const createDestinationSelections = (destinationsData) => {
-  const destinationOptions = getElementById('#destination');
+  const destinationOptions = document.getElementById('destination');
   return destinationsData.forEach((destination) => {
     const option = document.createElement('option');
     option.value = destination.id;

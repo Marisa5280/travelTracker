@@ -32,13 +32,13 @@ const startWebPage = () => {
     e.preventDefault();
     console.log('destination', newBookingDestination)
     const newTrip = {
-      id: mainData.trips.length,
+      id: mainData.trips.length + 1,
       status: "pending",
       suggestedActivities: [],
       userID: 2, // set to current user id after log in
-      destinationID: destinationId.value,
+      destinationID: parseInt(newBookingDestination.value),
       travelers: newBookingTravelers.value,
-      date: `${newBookingDate.value}`,
+      date: `${newBookingDate.value.replace(/-/g, '/')}`,
       duration: newBookingDuration.value
     };
     console.log(newTrip);
