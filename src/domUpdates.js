@@ -61,4 +61,11 @@ const handleNewBooking = (mainData) => {
   createDestinationSelections(destinations)
 };
 
-export { displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking };
+const resetDashboard = () => {
+  show(userDashboard);
+  show(newBookingButton);
+  hide(backButton);
+  hide(bookingPage);
+}
+
+export { displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking, resetDashboard };

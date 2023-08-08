@@ -8,7 +8,7 @@ import './css/styles.css';
 // import './images/turing-logo.png'
 
 import { promises, addNewTrip } from './apiCalls';
-import {displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking} from './domUpdates';
+import {displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking, resetDashboard} from './domUpdates';
 
 // QUERY SELECTORS //
 const newBookingButton = document.querySelector('.booking_button');
@@ -17,6 +17,7 @@ const newBookingDate = document.querySelector('.booking_date');
 const newBookingTravelers = document.querySelector('.booking_travelers');
 const newBookingDuration = document.querySelector('.booking_length');
 const newBookingDestination = document.querySelector('.destination-select');
+const backButton = document.querySelector('.back_button');
 
 // DATA MODEL //
 const mainData = {};
@@ -30,7 +31,6 @@ const startWebPage = () => {
   });
   submitRequestButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('destination', newBookingDestination)
     const newTrip = {
       id: mainData.trips.length + 1,
       status: "pending",
@@ -41,7 +41,6 @@ const startWebPage = () => {
       date: `${newBookingDate.value.replace(/-/g, '/')}`,
       duration: newBookingDuration.value
     };
-    console.log(newTrip);
     addNewTrip(newTrip);
   })
   
@@ -57,6 +56,18 @@ window.addEventListener('load', () => {
   })
   .then(startWebPage)
 });
+
+backButton.addEventListener('click', () => {
+  resetDashboard();
+  Promise.all(promises)
+  .then(response => {
+    const [allTravelersData, allTripsData, allDestinationsData] = response;
+    mainData.travelers = allTravelersData;
+    mainData.trips = allTripsData;
+    mainData.destinations = allDestinationsData;
+  })
+  .then(startWebPage)
+})
 
 
 export {mainData};
