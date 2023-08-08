@@ -13,6 +13,19 @@
       <h1>Travel Tracker</h1>
       <button>log out</button>
     </header>
+    <!-- <form class="login" id="loginForm">
+      <div>
+        <label for="username">Enter Username</label>
+        <input placeholder="username" name="username" id="username"/>
+      </div>
+      <div>
+        <label for="password">Enter Password</label>
+        <input type="password" placeholder="password" name="password" id="password"/>
+      </div>
+      <div>
+        <input type="submit" value="LOG IN" class="submit">
+      </div>
+    </form> -->
     <div class="content_dashboard">
       <h2 class="user_welcome_text">welcome text goes here</h2>
       <div class="trips_container">
@@ -32,7 +45,7 @@
         <p>total spent this year: $<span class="total_cost">0</span></p>
       </div>
     </div>
-    <div class="content_booking hide">
+    <form class="content_booking hide">
       <h2>Request a New Trip</h2>
       <div class="booking_date-filter">
         <label for="booking">Please Choose a Start Date</label>
@@ -77,7 +90,7 @@
       <button class="booking_request-button" type="submit">
         Submit Request
       </button>
-    </div>
+    </form>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
