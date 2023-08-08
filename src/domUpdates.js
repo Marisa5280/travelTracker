@@ -1,6 +1,6 @@
 // This is where DOM manipulation functions live
 // IMPORTS
-import { filterUserTrips, getDestinationSelections } from "./functions";
+import { filterUserTrips } from "./functions";
 
 // QUERY SELECTORS
 const pastBox = document.querySelector(".trips_past_box");
@@ -9,7 +9,7 @@ const userDashboard = document.querySelector(".content_dashboard");
 const newBookingButton = document.querySelector(".booking_button");
 const backButton = document.querySelector(".back_button");
 const bookingPage = document.querySelector(".content_booking");
-const destinationSelection = document.querySelector(".destination-select");
+const destinationSelection = document.getElementById("#destination");
 
 // FUNCTIONS
 const show = (element) => {
@@ -38,9 +38,19 @@ const displayPendingUserTrips = (id, tripsData, destinationsData) => {
   });
 };
 
+const createDestinationSelections = (destinationsData) => {
+  const destinationOptions = getElementById('#destination');
+  return destinationsData.forEach((destination) => {
+    const option = document.createElement('option');
+    option.value = destination.id;
+    option.text = destination.destination;
+    destinationOptions.appendChild(option);
+  });
+}
+
 const showBookingPage = (mainData) => {
   hide(userDashboard);
-  show(newBookingButton);
+  hide(newBookingButton);
   show(backButton);
   show(bookingPage);
   handleNewBooking(mainData);
@@ -48,20 +58,7 @@ const showBookingPage = (mainData) => {
 
 const handleNewBooking = (mainData) => {
   const { destinations, trips } = mainData;
-  const destinationNames = getDestinationSelections(destinations);
-  destinationNames.forEach(destination => {
-    destinationSelection.innerHTML += `<option value="${destination}" tabindex='0'>${destination}</option>` 
-  })
-  const newTrip = {
-    "id": trips.length,
-    "status": "pending",
-    "suggestedActivities": [],
-    "userID": 2, // set to current user id after log in
-    "destinationID": 0,
-    "travelers": 0,
-    "date": " ",
-    "duration": 0
-  };
+  createDestinationSelections(destinations)
 };
 
 export { displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking };

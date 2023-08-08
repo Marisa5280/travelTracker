@@ -46,8 +46,5 @@ const calculateTripsCost = (id, tripsData, destinationsData) => {
   return flightCost + lodgingCost + agentFee;
 };
 
-const getDestinationSelections = (destinationsData) => {
-  return destinationsData.map(destination => destination.destination);
-}
 
-export { filterUserTrips, calculateTripsCost, getDestinationSelections };
+export { filterUserTrips, calculateTripsCost };

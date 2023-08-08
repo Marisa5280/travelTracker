@@ -7,11 +7,16 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 
-import { promises } from './apiCalls';
+import { promises, addNewTrip } from './apiCalls';
 import {displayPastUserTrips, displayPendingUserTrips, showBookingPage, handleNewBooking} from './domUpdates';
 
 // QUERY SELECTORS //
 const newBookingButton = document.querySelector('.booking_button');
+const submitRequestButton = document.querySelector('.booking_request-button');
+const newBookingDate = document.querySelector('.booking_date');
+const newBookingTravelers = document.querySelector('.booking_travelers');
+const newBookingDuration = document.querySelector('.booking_length');
+const newBookingDestination = document.querySelector('.destination-select');
 
 // DATA MODEL //
 const mainData = {};
@@ -23,6 +28,22 @@ const startWebPage = () => {
     showBookingPage(mainData);
     handleNewBooking(mainData);
   });
+  submitRequestButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('destination', newBookingDestination)
+    const newTrip = {
+      id: mainData.trips.length,
+      status: "pending",
+      suggestedActivities: [],
+      userID: 2, // set to current user id after log in
+      destinationID: destinationId.value,
+      travelers: newBookingTravelers.value,
+      date: `${newBookingDate.value}`,
+      duration: newBookingDuration.value
+    };
+    console.log(newTrip);
+    addNewTrip(newTrip);
+  })
   
 }
 
