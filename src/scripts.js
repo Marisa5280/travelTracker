@@ -39,7 +39,6 @@ const currentUser = {};
 // EVENT LISTENTERS //
 logInButton.addEventListener("click", (e) => {
   e.preventDefault();
-  // validate username and password
   userId = logInValidation(userName.value, password.value);
   startWebPage(userId);
   displayUserDashboard();
