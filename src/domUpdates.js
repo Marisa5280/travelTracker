@@ -10,7 +10,9 @@ const newBookingButton = document.querySelector(".booking_button");
 const backButton = document.querySelector(".back_button");
 const bookingPage = document.querySelector(".content_booking");
 const login = document.querySelector(".login");
-const totalCost = document.querySelector(".total_cost")
+const totalCost = document.querySelector(".total_cost");
+const welcomeMessage = document.querySelector(".user_welcome_text");
+
 // FUNCTIONS
 const show = (element) => {
   element.classList.remove("hide");
@@ -20,6 +22,11 @@ const hide = (element) => {
   element.classList.add("hide");
 };
 
+const welcomeUser = (id, travelersData) => {
+  const name = travelersData.find(traveler => traveler.id === id).name;
+  welcomeMessage.innerText = `Welcome, ${name}!`
+}
+
 const displayUserDashboard = () => {
   hide(login);
   show(userDashboard);
@@ -27,8 +34,8 @@ const displayUserDashboard = () => {
 };
 
 const displayTripsCost = (id, tripsData, destinationsData) => {
-  totalCost.innerText = calculateTripsCost(id, tripsData, destinationsData)
-}
+  totalCost.innerText = calculateTripsCost(id, tripsData, destinationsData);
+};
 
 const displayPastUserTrips = (id, tripsData, destinationsData) => {
   pastBox.innerHTML = "";
@@ -87,5 +94,6 @@ export {
   showBookingPage,
   handleNewBooking,
   resetDashboard,
-  displayTripsCost
+  displayTripsCost,
+  welcomeUser
 };

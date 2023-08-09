@@ -16,6 +16,7 @@ import {
   showBookingPage,
   handleNewBooking,
   resetDashboard,
+  welcomeUser
 } from "./domUpdates";
 import { logInValidation } from "./functions";
 
@@ -39,9 +40,10 @@ const currentUser = {};
 // EVENT LISTENTERS //
 logInButton.addEventListener("click", (e) => {
   e.preventDefault();
-  userId = logInValidation(userName.value, password.value);
+  userId = logInValidation(userName.value, password.value, mainData.travelers);
   startWebPage(userId);
   displayUserDashboard();
+  welcomeUser(userId, mainData.travelers)
 });
 
 const startWebPage = (userId) => {
