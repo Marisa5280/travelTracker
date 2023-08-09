@@ -1,7 +1,7 @@
 import chai from "chai";
 const expect = chai.expect;
 
-import { filterUserTrips, calculateTripsCost } from "../src/functions";
+import { filterUserTrips, calculateTripsCost, logInValidation } from "../src/functions";
 // import sampleTrips from "../src/sample-data/trips";
 // console.log("sampletrips", [sampleTrips.trips[0], sampleTrips.trips[1]]);
 
@@ -282,5 +282,52 @@ describe('calculateTripsCost function', () => {
 
   it('should return total cost plus agent fee', () => {
     expect(calculateTripsCost(1, tripsData, destinationsData)).to.equal(7018)
+  })
+})
+
+describe('logInValidation function', () => {
+  let travelersData;
+  beforeEach(() => {
+    travelersData = [ {
+      "id": 47,
+      "name": "Den Dossettor",
+      "travelerType": "relaxer"
+    },
+    {
+      "id": 48,
+      "name": "Lurlene Raisbeck",
+      "travelerType": "photographer"
+    },
+    {
+      "id": 49,
+      "name": "Guthry Tute",
+      "travelerType": "thrill-seeker"
+    },
+    {
+      "id": 50,
+      "name": "Morey Flanders",
+      "travelerType": "foodie"
+    }
+  ]
+});
+
+  it('should be a function', () => {
+    expect(logInValidation).to.be.a('function')
+  })
+
+  it('should get a userId from username', () => {
+    expect(logInValidation('traveler50', 'travel', travelersData)).to.equal(50)
+  })
+
+  it('should give an alert for invalid password', () => {
+    let alertMessage = '';
+    alertMessage = logInValidation('traveler50', 'wrongpassword', travelersData);
+    expect(alertMessage).to.equal(`Incorrect Password!`);
+  })
+
+  it('should give an error message for invalid username', () => {
+    let errorMessage = '';
+    errorMessage = logInValidation('traveler66', 'travel', travelersData);
+    expect(errorMessage).to.equal(`User 66 does not exist.`)
   })
 })

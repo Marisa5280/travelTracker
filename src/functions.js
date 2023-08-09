@@ -46,5 +46,18 @@ const calculateTripsCost = (id, tripsData, destinationsData) => {
   return flightCost + lodgingCost + agentFee;
 };
 
+const logInValidation = (username, password, travelersData) => {
+  let userId = 0;
+  if (password === 'travel'){
+    const parts = username.split('traveler');
+    userId = parts[1];
+  } else {
+    return 'Incorrect Password!';
+  }
+  if (!travelersData.find(traveler => traveler.id === Number(userId))) {
+    return `User ${userId} does not exist.`
+  }
+  return Number(userId);
+}
 
-export { filterUserTrips, calculateTripsCost };
+export { filterUserTrips, calculateTripsCost, logInValidation };
