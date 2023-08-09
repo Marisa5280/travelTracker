@@ -10,7 +10,7 @@ const newBookingButton = document.querySelector(".booking_button");
 const backButton = document.querySelector(".back_button");
 const bookingPage = document.querySelector(".content_booking");
 const login = document.querySelector(".login");
-const totalCost = document.querySelector(".total_cost")
+const totalCost = document.querySelector(".total_cost");
 // FUNCTIONS
 const show = (element) => {
   element.classList.remove("hide");
@@ -27,8 +27,8 @@ const displayUserDashboard = () => {
 };
 
 const displayTripsCost = (id, tripsData, destinationsData) => {
-  totalCost.innerText = calculateTripsCost(id, tripsData, destinationsData)
-}
+  totalCost.innerText = calculateTripsCost(id, tripsData, destinationsData);
+};
 
 const displayPastUserTrips = (id, tripsData, destinationsData) => {
   pastBox.innerHTML = "";

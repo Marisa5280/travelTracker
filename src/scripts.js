@@ -39,7 +39,7 @@ const currentUser = {};
 // EVENT LISTENTERS //
 logInButton.addEventListener("click", (e) => {
   e.preventDefault();
-  userId = logInValidation(userName.value, password.value);
+  userId = logInValidation(userName.value, password.value, mainData.travelers);
   startWebPage(userId);
   displayUserDashboard();
 });
