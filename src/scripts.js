@@ -34,8 +34,7 @@ const logInButton = document.querySelector(".submit");
 
 // DATA MODEL //
 const mainData = {};
-let userId = null;
-const currentUser = {};
+let userId = null;;
 
 // EVENT LISTENTERS //
 logInButton.addEventListener("click", (e) => {
